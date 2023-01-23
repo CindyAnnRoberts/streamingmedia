@@ -19,43 +19,101 @@ body{
     font-family: Verdana, Geneva, Tahoma, sans-serif; 
     background-color: #fff;
 }
+.wrapper{
+    display: grid;
+    grid-template-columns: 375px;
+    grid-template-rows: repeat(6, auto);
+}
 .topHeader{
-    margin: 20px 0;
+    margin: 0;
+    background-color: #020873;
 }
+
+.bottomHeader{
+    grid-row: 2/3;
+    background-image: linear-gradient(to right, #030abc,#020873, black);
+}
+
 header h2{
-    color: black;
+    color: #fff;
+    font-weight: normal;
+    margin: 0 0 20px 10px;
+    padding: 0 20px;
+    font-size: .75em;
+    line-height: 1.3em;
 }
-/* nav ul {
-display: flex;
-justify-content: space-around;
-list-style-type: none;
-text-align: center;
-} */
+main{
+    grid-row: 3/4;
+}
+a{
+    text-decoration: none;
+}
+ul {
+    /* overflow: hidden; */
+    max-height: 0;
+    transition: max-height .2s ease-out;
+    
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 28px;
+    
+}
+.hide{
+    visibility: hidden;
+}
 li:first-child{
    font-variant: small-caps; 
+   font-size: 1.25em;
 }
 
 li{
     color: #fff;
     list-style-type: none;
     padding: 10px 0;
-    font-weight: 300;
+    font-weight: 300; 
 }
 
 
+a{
+    color:#fff;
+}
+
+
+.userProfile{
+    display: none;
+}
 h1 {
     font-size:1.25em;
+    margin: 10px 0 10px 30px;
+    color: #fff;
+    text-transform: uppercase;
 }
-
 h2,h3 {
     font-size: 1em;
-    font-weight: normal; 
     color: #590242;
+}
+#trending h2{
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 20px 30px
+}
+#trending h3{
+    font-weight: bold;
+}
+#trending div{
+    padding: 5px;
 }
 section p{
     color: #fff;
+    line-height: 1.3em;
 }
-
+#playlists{
+    grid-row: 4/5;
+}
 #playlists, #curated{
     background-color: #fff;
 }
@@ -72,11 +130,11 @@ section p{
     text-transform: uppercase;
     font-weight: bold;
 }
-
 #playlists p, #curated p{
     text-align: center;
     padding:0 12px;
     font-size: .75em;
+    line-height: 1.3em;
 }
 #playlists section{
     background-color: #0d8dfb;
@@ -119,11 +177,7 @@ button{
     border-radius: 5px;
     margin: 20px 30px;
 }
-/* ul {
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height .2s ease-out;
-} */
+
 
 .scroll{
     display: grid;
@@ -138,8 +192,8 @@ button{
        
 }
 .scroll div{
-    /* position: absolute;
-    top: 251px; */
+    position: absolute;
+    bottom: 0px;
     background-color:rgba(255,255,255,.75);
     padding: 5px;
     height: 50px;
@@ -159,13 +213,14 @@ footer{
     text-align: center;
     margin-top: 20px;
     padding-bottom: 20px;
+    grid-row: 6/7;
 }
-footer p{
+footer small{
     color: #590242;
     font-size: .75em;
 }
-/* 
-}
+
+/* HAMBURGER MENU */
 label {
     cursor: pointer;
     display: inline-block;
@@ -174,15 +229,16 @@ label {
     user-select: none;
 }
 label span {
-    background-color: #ffffff;
+    background-color: #fff;
     display: block;
     height: 2px;
     position: relative;
     transition: background-color .2s ease-out;
     width: 18px;
 }
+/* CREATES A SPAN TAG ABOVE AND BELOW*/
 label span:before, label span:after {
-    background: #ffffff;
+    background: #fff;
     content: '';
     display: block;
     height: 100%;
@@ -190,21 +246,28 @@ label span:before, label span:after {
     transition: all .2s ease-out;
     width: 100%;
 }
+/* POSITION SPAN TAG ABOVE*/
 label span:before {
     top: 5px;
 }
+/* POSITION SPAN TAG BELOW*/
 label span:after {
     top: -5px;
 }
+/* HIDES CHECKBOX */
 input {
     display: none;
 }
+/*****/
+
 input:checked ~ ul {
     max-height: 500px;
 }
+/* HAMBURGER BECOMES INVISIBLE WHEN CHECKED*/
 input:checked ~ label span {
     background: transparent;
 }
+/* TRANSFORMS HAMBURGER MENU INTO AN X */
 input:checked ~ label span:before {
     transform: rotate(-45deg);
 }
@@ -214,9 +277,9 @@ input:checked ~ label span:after {
 input:checked ~ label:not(.steps) span:before, input:checked ~ label:not(.steps) span:after {
     top: 0;
 }
-} */
 
 
+/* STYLES AUDIO CONTROLS */
 audio::-webkit-media-controls-mute-button {
 background-color: #fff;
 border-radius: 50%;
@@ -229,7 +292,7 @@ audio::-webkit-media-controls-enclosure {
 background-color: rgba(255,255,255,.5);
 }
 
-/* TRENDING SCROLL BAR */
+/* STYLES TRENDING SCROLL BAR */
 #trending ::-webkit-scrollbar {
 width: 15px;
 }
@@ -244,7 +307,7 @@ border-radius: 5px;
 background-color: #020659;
 }
 
-/* PLAYLIST SCROLL BAR */
+/* STYLES PLAYLIST SCROLL BAR */
 #playlists ::-webkit-scrollbar, #curated ::-webkit-scrollbar {
 width: 15px;
 }
@@ -260,15 +323,62 @@ background-color: #fff;
 }
 
 
-/* @media screen and (min-width:834px) {
+@media screen and (min-width:834px) {
     ul {
         overflow: visible;
         position: absolute;
         top: 0;
         display: grid;
         grid-template-columns: repeat(5, 1fr);
+
     }
     label span, input {
         display: none;
     }
+
+    .hide{
+        visibility: visible;
+    }
+    body{
+        width: 834px;
+    }
+    .wrapper{
+    grid-template-columns: repeat(2, 417px);
+    grid-template-rows: repeat(6, auto);
+    }
+   .bottomHeader{
+    grid-column: 1/-1;
+    grid-row: 2/3;
+   }
+   .topHeader{
+    grid-column: 1/-1;
+    grid-row: 1/2;
+   }
+   main{
+    grid-column: 1/-1;
+    grid-row: 3/4;
+   }
+   #playlists{
+    grid-column: 1/2;
+    grid-row: 4/5;
+   }
+   #curated{
+    grid-column: 2/-1;
+    grid-row: 4/5;
+   }
+   footer{
+    grid-column: 1/-1;
+    grid-row: 5/6;
+   }
+  
+}
+/* button:hover{
+    cursor: pointer;
+} */
+
+/* nav ul {
+display: flex;
+justify-content: space-around;
+list-style-type: none;
+text-align: center;
 } */
