@@ -54,28 +54,33 @@ ul {
     max-height: 0;
     transition: max-height .2s ease-out;
     
-    
+    /* mobile styles for nav items */
     display: flex;
     flex-direction: column;
-    align-items: center;
-  
+    align-items: center;  
     
 }
+
 /* .hide{
     visibility: hidden;
 } */
+
 li:first-child{
    font-variant: small-caps; 
    font-size: 1.25em;
 }
 
 li{
-    color: #fff;
     list-style-type: none;
     padding: 10px 0;
     font-weight: 300; 
+    margin-right: 60px;
+    font-size: .80em;
 }
-
+li:not(.active){
+    text-transform: uppercase;
+    font-weight: lighter;
+}
 
 a{
     color:#fff;
@@ -327,6 +332,9 @@ background-color: #fff;
     .userProfile{
         display: block;
     }
+    .bottomHeader h2{
+        max-width: 95ch;
+    }
     ul {
         overflow: visible;
         position: absolute;
@@ -359,6 +367,7 @@ background-color: #fff;
    .bottomHeader{
     grid-column: 1/-1;
     grid-row: 2/3;
+    justify-content: space-around;
    }
    .topHeader{
     grid-column: 1/-1;
@@ -411,6 +420,7 @@ background-color: #fff;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
+    margin: 3px 0;
    }
    .yourPlaylist section h3, .curatedPlaylist section h3{
     grid-column: 2/3;
@@ -419,7 +429,7 @@ background-color: #fff;
    .yourPlaylist section p, .curatedPlaylist p{
     grid-column: 2/3;
     grid-row: 1/-1;
-    margin-top: 35px;
+    margin-top: 25px;
    }
    #playlists h3, #curated h3{
     padding: 0;
