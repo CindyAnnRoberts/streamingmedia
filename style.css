@@ -27,6 +27,7 @@ body{
 .topHeader{
     margin: 0;
     background-color: #020873;
+    display: flex;
 }
 
 .bottomHeader{
@@ -56,15 +57,13 @@ ul {
     
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    position: relative;
-    top: 28px;
+  
     
 }
-.hide{
+/* .hide{
     visibility: hidden;
-}
+} */
 li:first-child{
    font-variant: small-caps; 
    font-size: 1.25em;
@@ -324,6 +323,10 @@ background-color: #fff;
 
 
 @media screen and (min-width:834px) {
+   
+    .userProfile{
+        display: block;
+    }
     ul {
         overflow: visible;
         position: absolute;
@@ -331,6 +334,13 @@ background-color: #fff;
         display: grid;
         grid-template-columns: repeat(5, 1fr);
 
+    }
+    li{
+       /* padding: 10px; */
+       margin-left: 10px;
+       max-width: 8ch;
+       text-align: center;
+       /* text-transform: uppercase; */
     }
     label span, input {
         display: none;
@@ -354,6 +364,9 @@ background-color: #fff;
     grid-column: 1/-1;
     grid-row: 1/2;
    }
+   .topHeader:hover{
+    background: #590242;
+   }
    main{
     grid-column: 1/-1;
     grid-row: 3/4;
@@ -366,15 +379,57 @@ background-color: #fff;
     grid-column: 2/-1;
     grid-row: 4/5;
    }
+   button{
+    margin-top: 20px;
+    position: relative;
+    left: 232px;
+   }
+   button:hover{
+    cursor: pointer;
+    background-color: #020659;
+   }
+   main button{
+    left: 645px;
+   }
    footer{
     grid-column: 1/-1;
     grid-row: 5/6;
    }
-  
+
+
+   .yourPlaylist, .curatedPlaylist{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    height: 515px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 10px;
 }
-/* button:hover{
-    cursor: pointer;
-} */
+  
+   .yourPlaylist section, .curatedPlaylist section{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+   }
+   .yourPlaylist section h3, .curatedPlaylist section h3{
+    grid-column: 2/3;
+    grid-row: 1/-1;
+   }
+   .yourPlaylist section p, .curatedPlaylist p{
+    grid-column: 2/3;
+    grid-row: 1/-1;
+    margin-top: 35px;
+   }
+   #playlists h3, #curated h3{
+    padding: 0;
+   }
+   #playlists p, #curated p{
+    padding: 0;
+   }
+
+   
+}
 
 /* nav ul {
 display: flex;
