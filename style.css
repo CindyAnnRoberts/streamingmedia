@@ -108,16 +108,15 @@ ul {
 li{
     display: none;
     list-style-type: none;
-    padding: 10px 0;
+    /* padding: 10px 0; */
     font-weight: 300; 
     font-size: .80em;
-    margin-right: 90px;
 }
 li:first-child{
     font-variant: small-caps; 
     font-size: 1.60em;
     font-weight: bold;
-    margin: 5px 5px 0 50px;
+    margin: 15px 5px 0 50px;
     display:block;
  }
  
@@ -373,46 +372,58 @@ background-color: #fff;
         width: 834px;
     }
     .wrapper{
-    grid-template-columns: repeat(2, 417px);
-    grid-template-rows: repeat(6, auto);
+        grid-template-columns: repeat(2, 417px);
+        grid-template-rows: repeat(6, auto);
+        }
+    .bottomHeader{
+        grid-column: 1/-1;
+        grid-row: 2/3;
     }
-   .bottomHeader{
-    grid-column: 1/-1;
-    grid-row: 2/3;
-   }
-   .topHeader{
-    grid-column: 1/-1;
-    grid-row: 1/2;
-    padding-top: 10px;
-   }
-   .topHeader:hover{
-    background: #590242;
-   }
-  
+    .topHeader{
+        grid-column: 1/-1;
+        grid-row: 1/2;
+        padding-top: 10px;
+    }
+
+    ul li:hover{
+        background-color:#590242;
+    }
+
+    li a:not(.user){
+        display: inline-block;
+        margin-top: 4px;
+    }
+   
     label span, input {
         display: none;
     }
 
-    ul {
+    nav ul {
         /* overflow: visible; */
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(5, 1fr); 
     }
+
     li{
-       margin-left: 5px;
        text-align: center; 
-       display: block;
+       display: inline-block;
        letter-spacing: .5px;
        cursor: pointer;
+
+       padding: 5px 12px;
+       border-radius: 3px;
+       justify-self: center;
     }
 
     li:first-child{
-        margin: 0 65px 0 -20px;
+        margin: 0 30px 0 -20px;
+        display: inline-block; 
     }
    
     .userProfile{
-        display: block;
+        display: inline-block;
     }
+
     main{
         grid-column: 1/-1;
         grid-row: 3/4;
@@ -420,27 +431,28 @@ background-color: #fff;
     .trending-btn{
     left: 627px;
     }
-   #playlists{
-    grid-column: 1/2;
-    grid-row: 4/5;
-   }
-   #curated{
-    grid-column: 2/-1;
-    grid-row: 4/5;
-   }
-   button{
-    margin-top: 20px;
-    position: relative;
-    left: 210px;
-   }
-   button:hover{
-    cursor: pointer;
-    background-color: #020659;
-   }
-   
-   #playlists h3, #curated h3{
-    padding: 0;
-   }
+
+    #playlists{
+        grid-column: 1/2;
+        grid-row: 4/5;
+    }
+    #curated{
+        grid-column: 2/-1;
+        grid-row: 4/5;
+    }
+    button{
+        margin-top: 20px;
+        position: relative;
+        left: 210px;
+    }
+    button:hover{
+        cursor: pointer;
+        background-color: #020659;
+    }
+    
+    #playlists h3, #curated h3{
+        padding: 0;
+    }
   
    .yourPlaylist, .curatedPlaylist{
     display: grid;
@@ -457,8 +469,8 @@ background-color: #fff;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     margin: 3px 0;
-    
    }
+
    .yourPlaylist section img, .curatedPlaylist section img{
     margin-right: 8px;
 
